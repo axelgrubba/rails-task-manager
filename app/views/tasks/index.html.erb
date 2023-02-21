@@ -1,0 +1,12 @@
+<ul>
+  <% @tasks.each do |task| %>
+    <li>
+
+      <input type="checkbox" name="favorite_pet" value="Cats" checked="<%= task.completed %>" disabled >Completed?<br>
+      <%= link_to task.title, task_path(task) %>
+      <%# <%= link_to "Edit",edit_path(task) %> %>
+      <%= link_to "Delete", task_path(task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    </li>
+  <% end %>
+</ul>
+<%# <%= link_to "Create new task",new_path %> %>
